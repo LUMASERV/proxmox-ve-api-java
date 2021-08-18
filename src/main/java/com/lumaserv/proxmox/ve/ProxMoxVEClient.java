@@ -5,10 +5,14 @@ import com.lumaserv.proxmox.ve.apis.ClusterAPI;
 import com.lumaserv.proxmox.ve.apis.NodeAPI;
 import com.lumaserv.proxmox.ve.model.nodes.Node;
 import com.lumaserv.proxmox.ve.model.pools.Pool;
+import com.lumaserv.proxmox.ve.model.storage.Storage;
 import com.lumaserv.proxmox.ve.request.access.AccessTicketCreateRequest;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolCreateRequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolUpdateRequest;
+import com.lumaserv.proxmox.ve.request.storage.StorageCreateRequest;
+import com.lumaserv.proxmox.ve.request.storage.StorageGetRequest;
+import com.lumaserv.proxmox.ve.request.storage.StorageUpdateRequest;
 import com.lumaserv.proxmox.ve.response.access.AccessTicketCreateResponse;
 import org.javawebstack.abstractdata.AbstractElement;
 import org.javawebstack.abstractdata.AbstractMapper;
@@ -114,6 +118,30 @@ public class ProxMoxVEClient {
 
     public void deletePool(String id) throws ProxMoxVEException {
         request("DELETE", "/pools/" + id, null, null);
+    }
+
+    public List<Storage> getStorages() throws ProxMoxVEException {
+        return getStorages(new StorageGetRequest());
+    }
+
+    public List<Storage> getStorages(StorageGetRequest request) throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/storage", request, Storage[].class));
+    }
+
+    public void createStorage(StorageCreateRequest request) throws ProxMoxVEException {
+        request("POST", "/storage", request, null);
+    }
+
+    public Storage getStorage(String name) throws ProxMoxVEException {
+        return request("GET", "/storage/" + name, null, Storage.class);
+    }
+
+    public void updateStorage(String name, StorageUpdateRequest request) throws ProxMoxVEException {
+        request("PUT", "/storage/" + name, request, null);
+    }
+
+    public void deleteStorage(String name) throws ProxMoxVEException {
+        request("DELETE", "/storage/" + name, null, null);
     }
 
     public ClusterAPI cluster() {

@@ -1,10 +1,15 @@
 package com.lumaserv.proxmox.ve.apis;
 
 import com.lumaserv.proxmox.ve.ProxMoxVEException;
+import com.lumaserv.proxmox.ve.model.firewall.FirewallIPSet;
+import com.lumaserv.proxmox.ve.model.firewall.FirewallIPSetEntry;
+import com.lumaserv.proxmox.ve.model.firewall.FirewallOptions;
+import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMConfig;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMStatus;
-import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import com.lumaserv.proxmox.ve.request.*;
+import com.lumaserv.proxmox.ve.request.firewall.*;
 import com.lumaserv.proxmox.ve.request.nodes.qemu.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -143,6 +148,66 @@ public class QemuVMAPI {
 
     public QemuVMStatus getStatus() throws ProxMoxVEException {
         return QemuVMStatus.from(request("GET", "/status/current", null, AbstractObject.class));
+    }
+
+    public List<FirewallRule> getFirewallRules() throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/firewall/rules", null, FirewallRule[].class));
+    }
+
+    public void createFirewallRule(FirewallRuleCreateRequest request) throws ProxMoxVEException {
+        request("POST", "/firewall/rules", request, null);
+    }
+
+    public FirewallRule getFirewallRule(int pos) throws ProxMoxVEException {
+        return request("GET", "/firewall/rules/" + pos, null, FirewallRule.class);
+    }
+
+    public void updateFirewallRule(int pos, FirewallRuleUpdateRequest request) throws ProxMoxVEException {
+        request("PUT", "/firewall/rules/" + pos, request, null);
+    }
+
+    public void deleteFirewallRule(int pos) throws ProxMoxVEException {
+        request("DELETE", "/firewall/rules/" + pos, null, null);
+    }
+
+    public FirewallOptions getFirewallOptions() throws ProxMoxVEException {
+        return request("GET", "/firewall/options", null, FirewallOptions.class);
+    }
+
+    public void updateFirewallOptions(FirewallOptionsUpdateRequest request) throws ProxMoxVEException {
+        request("PUT", "/firewall/options", request, null);
+    }
+
+    public List<FirewallIPSet> getFirewallIPSets() throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/firewall/ipset", null, FirewallIPSet[].class));
+    }
+
+    public void createFirewallIPSet(FirewallIPSetCreateRequest request) throws ProxMoxVEException {
+        request("POST", "/firewall/ipset", request, null);
+    }
+
+    public void deleteFirewallIPSet(String ipset) throws ProxMoxVEException {
+        request("DELETE", "/firewall/ipset/" + ipset, null, null);
+    }
+
+    public List<FirewallIPSetEntry> getFirewallIPSetEntries(String ipset) throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/firewall/ipset/" + ipset, null, FirewallIPSetEntry[].class));
+    }
+
+    public void createFirewallIPSetEntry(String ipset, FirewallIPSetEntryCreateRequest request) throws ProxMoxVEException {
+        request("POST", "/firewall/ipset/" + ipset, request, null);
+    }
+
+    public FirewallIPSetEntry getFirewallIPSetEntry(String ipset, String cidr) throws ProxMoxVEException {
+        return request("GET", "/firewall/ipset/" + ipset + "/" + cidr, null, FirewallIPSetEntry.class);
+    }
+
+    public void updateFirewallIPSetEntry(String ipset, String cidr, FirewallIPSetEntryUpdateRequest request) throws ProxMoxVEException {
+        request("PUT", "/firewall/ipset/" + ipset + "/" + cidr, request, null);
+    }
+
+    public void deleteFirewallIPSetEntry(String ipset, String cidr) throws ProxMoxVEException {
+        request("DELETE", "/firewall/ipset/" + ipset + "/" + cidr, null, null);
     }
 
 }
