@@ -208,4 +208,8 @@ public class ClusterAPI {
         return Arrays.asList(request("GET", "/tasks", null, Task[].class));
     }
 
+    public int nextId() throws ProxMoxVEException {
+        return request("GET", "/nextid", null, int.class);
+    }
+
 }
