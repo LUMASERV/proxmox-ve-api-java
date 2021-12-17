@@ -2,7 +2,11 @@ package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
 import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import com.lumaserv.proxmox.ve.util.UrlEncoder;
 import lombok.Setter;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @Setter
 public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpdateRequest> {
@@ -107,6 +111,11 @@ public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpda
     @SerializedName("skiplock")
     Integer skipLock;
     Integer backgroundDelay;
+
+    public QemuVMConfigUpdateRequest setSshKeys(String... sshKeys) {
+        this.sshKeys = Arrays.asList(sshKeys).stream().map(UrlEncoder::encode).collect(Collectors.joining(","));
+        return this;
+    }
 
     public QemuVMConfigUpdateRequest setHostPCI(int i, String value) {
         return set("hostpci" + i, value);

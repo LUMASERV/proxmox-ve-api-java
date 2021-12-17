@@ -6,8 +6,8 @@ import com.lumaserv.proxmox.ve.apis.NodeAPI;
 import com.lumaserv.proxmox.ve.model.nodes.Node;
 import com.lumaserv.proxmox.ve.model.pools.Pool;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
-import com.lumaserv.proxmox.ve.request.access.AccessTicketCreateRequest;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import com.lumaserv.proxmox.ve.request.access.AccessTicketCreateRequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolCreateRequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolUpdateRequest;
 import com.lumaserv.proxmox.ve.request.storage.StorageCreateRequest;
@@ -51,6 +51,12 @@ public class ProxMoxVEClient {
                     .setRealm(realm)
             ));
         }
+    }
+
+    public ProxMoxVEClient(String host, String token) {
+        client = new HTTPClient().setBaseUrl("https://" + host + ":8006/api2/json");
+        client.setSSLVerification(false);
+        client.header("Authorization", "PVEAPIToken=" + token);
     }
 
     public ProxMoxVEClient setAuth(AccessTicketCreateResponse response) {

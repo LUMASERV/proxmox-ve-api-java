@@ -2,6 +2,7 @@ package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
 import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.ProxMoxVEClient;
+import com.lumaserv.proxmox.ve.util.UrlEncoder;
 import lombok.Getter;
 import org.javawebstack.abstractdata.AbstractObject;
 
@@ -111,6 +112,13 @@ public class QemuVMConfig {
     final Map<Integer, String> unused = new HashMap<>();
     final Map<Integer, String> usb = new HashMap<>();
     final Map<Integer, String> virtio = new HashMap<>();
+
+    public String[] getSshKeys() {
+        String[] sshKeys = this.sshKeys.split(",");
+        for(int i=0; i<sshKeys.length; i++)
+            sshKeys[i] = UrlEncoder.decode(sshKeys[i]);
+        return sshKeys;
+    }
 
     public Boolean getAcpi() {
         return acpi == null ? null : (acpi > 0);

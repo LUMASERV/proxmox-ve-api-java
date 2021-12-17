@@ -2,7 +2,6 @@ package com.lumaserv.proxmox.ve.request.sdn;
 
 import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
-import lombok.AccessLevel;
 import lombok.Setter;
 
 @Setter

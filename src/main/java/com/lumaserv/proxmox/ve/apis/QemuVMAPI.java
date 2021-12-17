@@ -8,7 +8,7 @@ import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMConfig;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMStatus;
-import com.lumaserv.proxmox.ve.request.*;
+import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.firewall.*;
 import com.lumaserv.proxmox.ve.request.nodes.qemu.*;
 import lombok.AllArgsConstructor;
@@ -208,6 +208,10 @@ public class QemuVMAPI {
 
     public void deleteFirewallIPSetEntry(String ipset, String cidr) throws ProxMoxVEException {
         request("DELETE", "/firewall/ipset/" + ipset + "/" + cidr, null, null);
+    }
+
+    public String moveDisk(QemuVMMoveDiskRequest request) throws ProxMoxVEException {
+        return request("POST", "/move_disk", request, String.class);
     }
 
 }
