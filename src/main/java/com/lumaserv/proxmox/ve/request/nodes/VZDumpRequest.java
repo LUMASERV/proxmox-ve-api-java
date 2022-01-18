@@ -1,51 +1,51 @@
 package com.lumaserv.proxmox.ve.request.nodes;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class VZDumpRequest extends ProxMoxVERequest<VZDumpRequest> {
 
     Integer all;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     Integer bandwidthLimit;
     String compress;
-    @SerializedName("dumpdir")
+    @MapperOptions(name = "dumpdir")
     String dumpDirectory;
     String exclude;
-    @SerializedName("exclude-path")
+    @MapperOptions(name = "exclude-path")
     String excludePath;
-    @SerializedName("ionice")
+    @MapperOptions(name = "ionice")
     Integer ioNice;
-    @SerializedName("lockwait")
+    @MapperOptions(name = "lockwait")
     Integer lockWait;
-    @SerializedName("mailnotification")
+    @MapperOptions(name = "mailnotification")
     String mailNotification;
-    @SerializedName("mailto")
+    @MapperOptions(name = "mailto")
     String mailTo;
-    @SerializedName("maxfiles")
+    @MapperOptions(name = "maxfiles")
     Integer maxFiles;
     String mode;
     String node;
     Integer pigz;
     String pool;
-    @SerializedName("prune-backups")
+    @MapperOptions(name = "prune-backups")
     String pruneBackups;
     Integer quiet;
     Integer remove;
     String script;
-    @SerializedName("stdexcludes")
+    @MapperOptions(name = "stdexcludes")
     Integer stdExcludes;
-    @SerializedName("stdout")
+    @MapperOptions(name = "stdout")
     Integer stdOut;
     Integer stop;
-    @SerializedName("stopwait")
+    @MapperOptions(name = "stopwait")
     Integer stopWait;
     String storage;
-    @SerializedName("tmpdir")
+    @MapperOptions(name = "tmpdir")
     String tmpDirectory;
-    @SerializedName("vmid")
+    @MapperOptions(name = "vmid")
     String vmId;
     Integer zstd;
 

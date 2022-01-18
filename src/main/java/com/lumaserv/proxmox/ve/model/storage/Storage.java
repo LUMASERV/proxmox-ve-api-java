@@ -1,12 +1,12 @@
 package com.lumaserv.proxmox.ve.model.storage;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class Storage {
 
-    @SerializedName("storage")
+    @MapperOptions(name = "storage")
     String name;
     Integer shared;
     String digest;
@@ -14,11 +14,11 @@ public class Storage {
     Integer krbd;
     String type;
     String server;
-    @SerializedName("encryption-key")
+    @MapperOptions(name = "encryption-key")
     String encryptionKey;
     String datastore;
     String fingerprint;
-    @SerializedName("prune-backups")
+    @MapperOptions(name = "prune-backups")
     String pruneBackups;
     String username;
     String content;
@@ -26,63 +26,63 @@ public class Storage {
     String nodes;
     Integer disable;
     String share;
-    @SerializedName("authsupported")
+    @MapperOptions(name = "authsupported")
     String authSupported;
     String base;
-    @SerializedName("blocksize")
+    @MapperOptions(name = "blocksize")
     String blockSize;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     String bandwidthLimit;
-    @SerializedName("comstar_hg")
+    @MapperOptions(name = "comstar_hg")
     String comstarHostGroup;
-    @SerializedName("comstar_tg")
+    @MapperOptions(name = "comstar_tg")
     String comstarTargetGroup;
     String domain;
     String export;
     String format;
     Integer fuse;
     String isMountpoint;
-    @SerializedName("iscsiprovider")
+    @MapperOptions(name = "iscsiprovider")
     String iScsiProvider;
-    @SerializedName("lio_tpg")
+    @MapperOptions(name = "lio_tpg")
     String lioTargetPortalGroup;
-    @SerializedName("master-pubkey")
+    @MapperOptions(name = "master-pubkey")
     String masterPublicKey;
-    @SerializedName("maxfiles")
+    @MapperOptions(name = "maxfiles")
     Integer maxFiles;
     Integer mkdir;
-    @SerializedName("monhost")
+    @MapperOptions(name = "monhost")
     String monitorHost;
     String mountpoint;
     String namespace;
     Integer nocow;
-    @SerializedName("nowritecache")
+    @MapperOptions(name = "nowritecache")
     Integer noWriteCache;
     String options;
     String password;
     Integer port;
     String portal;
-    @SerializedName("saferemove")
+    @MapperOptions(name = "saferemove")
     Integer safeRemove;
-    @SerializedName("saferemove_throughput")
+    @MapperOptions(name = "saferemove_throughput")
     String safeRemoveThroughput;
     String server2;
-    @SerializedName("smbversion")
+    @MapperOptions(name = "smbversion")
     String smbVersion;
     Integer sparse;
-    @SerializedName("subdir")
+    @MapperOptions(name = "subdir")
     String subDirectory;
     Integer taggedOnly;
     String target;
-    @SerializedName("thinpool")
+    @MapperOptions(name = "thinpool")
     String thinPool;
     String transport;
-    @SerializedName("vgname")
+    @MapperOptions(name = "vgname")
     String vgName;
     String volume;
-    @SerializedName("avail")
+    @MapperOptions(name = "avail")
     Long available;
-    @SerializedName("total")
+    @MapperOptions(name = "total")
     Long total;
     Long used;
     Double usedFraction;

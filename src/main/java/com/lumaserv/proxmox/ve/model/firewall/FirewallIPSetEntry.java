@@ -1,7 +1,7 @@
 package com.lumaserv.proxmox.ve.model.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class FirewallIPSetEntry {
@@ -9,7 +9,7 @@ public class FirewallIPSetEntry {
     String cidr;
     String digest;
     String comment;
-    @SerializedName("nomatch")
+    @MapperOptions(name = "nomatch")
     Boolean noMatch;
 
 }

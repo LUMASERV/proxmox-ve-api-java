@@ -1,9 +1,9 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.util.UrlEncoder;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -16,50 +16,50 @@ public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpda
     String arch;
     String archive;
     String args;
-    @SerializedName("audio0")
+    @MapperOptions(name = "audio0")
     String audio;
     Integer autostart;
     Integer balloon;
     String bios;
-    @SerializedName("boot")
+    @MapperOptions(name = "boot")
     String bootOrder;
-    @SerializedName("bootdisk")
+    @MapperOptions(name = "bootdisk")
     String bootDisk;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     Integer bandwidthLimit;
     String cdrom;
-    @SerializedName("cicustom")
+    @MapperOptions(name = "cicustom")
     String ciCustom;
-    @SerializedName("cipassword")
+    @MapperOptions(name = "cipassword")
     String ciPassword;
-    @SerializedName("citype")
+    @MapperOptions(name = "citype")
     String ciType;
-    @SerializedName("ciuser")
+    @MapperOptions(name = "ciuser")
     String ciUser;
     Integer cores;
     String cpu;
-    @SerializedName("cpulimit")
+    @MapperOptions(name = "cpulimit")
     Double cpuLimit;
-    @SerializedName("cpuunits")
+    @MapperOptions(name = "cpuunits")
     Integer cpuUnits;
     String description;
-    @SerializedName("efidisk0")
+    @MapperOptions(name = "efidisk0")
     String efiDisk;
     Integer force;
     Integer freeze;
-    @SerializedName("hookscript")
+    @MapperOptions(name = "hookscript")
     String hookScript;
     String hotplug;
     String hugepages;
-    @SerializedName("ivshmem")
+    @MapperOptions(name = "ivshmem")
     String interVMSharedMemory;
-    @SerializedName("keephugepages")
+    @MapperOptions(name = "keephugepages")
     Integer keepHugepages;
     String keyboard;
     Integer kvm;
-    @SerializedName("live-restore")
+    @MapperOptions(name = "live-restore")
     Integer liveRestore;
-    @SerializedName("localtime")
+    @MapperOptions(name = "localtime")
     Integer localTime;
     String lock;
     String machine;
@@ -69,27 +69,27 @@ public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpda
     String name;
     String nameserver;
     Integer numa;
-    @SerializedName("onboot")
+    @MapperOptions(name = "onboot")
     Integer startOnBoot;
-    @SerializedName("ostype")
+    @MapperOptions(name = "ostype")
     String osType;
     String pool;
     Integer protection;
-    @SerializedName("reboot")
+    @MapperOptions(name = "reboot")
     Integer allowReboot;
-    @SerializedName("rng0")
+    @MapperOptions(name = "rng0")
     String randomNumberGenerator;
-    @SerializedName("scsihw")
+    @MapperOptions(name = "scsihw")
     String scsiHw;
-    @SerializedName("searchdomain")
+    @MapperOptions(name = "searchdomain")
     String searchDomain;
     Integer shares;
     String smbios1;
     Integer sockets;
     String spiceEnhancements;
-    @SerializedName("sshkeys")
+    @MapperOptions(name = "sshkeys")
     String sshKeys;
-    @SerializedName("startdate")
+    @MapperOptions(name = "startdate")
     String startDate;
     String startup;
     String storage;
@@ -100,15 +100,15 @@ public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpda
     Integer unique;
     Integer vcpus;
     String vga;
-    @SerializedName("vmgenid")
+    @MapperOptions(name = "vmgenid")
     String vmGenId;
-    @SerializedName("vmstatestorage")
+    @MapperOptions(name = "vmstatestorage")
     String vmStateStorage;
     String watchdog;
     String revert;
     String delete;
     String digest;
-    @SerializedName("skiplock")
+    @MapperOptions(name = "skiplock")
     Integer skipLock;
     Integer backgroundDelay;
 

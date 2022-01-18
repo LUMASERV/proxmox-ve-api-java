@@ -1,16 +1,16 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMDeleteRequest extends ProxMoxVERequest<QemuVMDeleteRequest> {
 
-    @SerializedName("destroy-unreferenced-disks")
+    @MapperOptions(name = "destroy-unreferenced-disks")
     Integer destroyUnreferencedDisks;
     Integer purge;
-    @SerializedName("skiplock")
+    @MapperOptions(name = "skiplock")
     String skipLock;
 
     public QemuVMDeleteRequest setDestroyUnreferencedDisks(Boolean destroyUnreferencedDisks) {

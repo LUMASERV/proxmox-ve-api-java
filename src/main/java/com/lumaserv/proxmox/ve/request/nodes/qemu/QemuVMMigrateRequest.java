@@ -1,22 +1,22 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMMigrateRequest extends ProxMoxVERequest<QemuVMMigrateRequest> {
 
     String target;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     Integer bandwidthLimit;
     Integer force;
     String migrationNetwork;
     String migrationType;
     Integer online;
-    @SerializedName("targetstorage")
+    @MapperOptions(name = "targetstorage")
     String targetStorage;
-    @SerializedName("with-local-disks")
+    @MapperOptions(name = "with-local-disks")
     Integer withLocalDisks;
 
     public QemuVMMigrateRequest setForce(Boolean force) {

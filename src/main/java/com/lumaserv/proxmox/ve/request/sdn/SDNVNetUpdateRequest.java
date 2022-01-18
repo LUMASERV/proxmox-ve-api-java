@@ -1,8 +1,8 @@
 package com.lumaserv.proxmox.ve.request.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class SDNVNetUpdateRequest extends ProxMoxVERequest<SDNVNetUpdateRequest> {
@@ -12,7 +12,7 @@ public class SDNVNetUpdateRequest extends ProxMoxVERequest<SDNVNetUpdateRequest>
     String zone;
     String alias;
     Integer tag;
-    @SerializedName("vlanaware")
+    @MapperOptions(name = "vlanaware")
     Integer vlanAware;
 
     public SDNVNetUpdateRequest setVlanAware(Boolean vlanAware) {

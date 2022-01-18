@@ -1,8 +1,8 @@
 package com.lumaserv.proxmox.ve.request.nodes;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class TaskGetRequest extends ProxMoxVERequest<TaskGetRequest> {
@@ -11,15 +11,15 @@ public class TaskGetRequest extends ProxMoxVERequest<TaskGetRequest> {
     Integer limit;
     Long since;
     Long until;
-    @SerializedName("vmid")
+    @MapperOptions(name = "vmid")
     Integer vmId;
     String source;
     Long start;
-    @SerializedName("statusfilter")
+    @MapperOptions(name = "statusfilter")
     String statusFilter;
-    @SerializedName("typefilter")
+    @MapperOptions(name = "typefilter")
     String typeFilter;
-    @SerializedName("userfilter")
+    @MapperOptions(name = "userfilter")
     String userFilter;
 
 }

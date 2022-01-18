@@ -1,17 +1,17 @@
 package com.lumaserv.proxmox.ve.model.storage;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class StorageVolume {
 
-    @SerializedName("volid")
+    @MapperOptions(name = "volid")
     String id;
     String name;
     String format;
     String content;
-    @SerializedName("vmid")
+    @MapperOptions(name = "vmid")
     Integer vmId;
     Long size;
 

@@ -1,25 +1,25 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class QemuVM {
 
-    @SerializedName("vmid")
+    @MapperOptions(name = "vmid")
     int id;
     String status;
     Double cpus;
     String lock;
-    @SerializedName("maxdisk")
+    @MapperOptions(name = "maxdisk")
     Long maxDisk;
-    @SerializedName("mem")
+    @MapperOptions(name = "mem")
     Long memory;
-    @SerializedName("maxmem")
+    @MapperOptions(name = "maxmem")
     Long maxMemory;
     String name;
     Integer pid;
-    @SerializedName("qmpstatus")
+    @MapperOptions(name = "qmpstatus")
     String qmpStatus;
     Integer uptime;
 

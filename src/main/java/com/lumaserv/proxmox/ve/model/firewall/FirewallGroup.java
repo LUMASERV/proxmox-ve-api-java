@@ -1,12 +1,12 @@
 package com.lumaserv.proxmox.ve.model.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class FirewallGroup {
 
-    @SerializedName("group")
+    @MapperOptions(name = "group")
     String name;
     String digest;
     String comment;

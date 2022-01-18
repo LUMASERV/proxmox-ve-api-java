@@ -1,23 +1,23 @@
 package com.lumaserv.proxmox.ve.model.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class FirewallOptions {
 
     Integer dhcp;
     Integer enable;
-    @SerializedName("ipfilter")
+    @MapperOptions(name = "ipfilter")
     Integer ipFilter;
     String logLevelIn;
     String logLevelOut;
-    @SerializedName("macfilter")
+    @MapperOptions(name = "macfilter")
     Integer macFilter;
     Integer ndp;
     FirewallRule.Action policyIn;
     FirewallRule.Action policyOut;
-    @SerializedName("radv")
+    @MapperOptions(name = "radv")
     Integer routerAdvertisement;
 
     public Boolean getDhcp() {

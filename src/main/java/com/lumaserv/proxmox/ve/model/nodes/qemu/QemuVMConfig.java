@@ -1,10 +1,10 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.ProxMoxVEClient;
 import com.lumaserv.proxmox.ve.util.UrlEncoder;
 import lombok.Getter;
 import org.javawebstack.abstractdata.AbstractObject;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,45 +17,45 @@ public class QemuVMConfig {
     String agent;
     String arch;
     String args;
-    @SerializedName("audio0")
+    @MapperOptions(name = "audio0")
     String audio;
     Integer autostart;
     Integer balloon;
     String bios;
-    @SerializedName("boot")
+    @MapperOptions(name = "boot")
     String bootOrder;
-    @SerializedName("bootdisk")
+    @MapperOptions(name = "bootdisk")
     String bootDisk;
     String cdrom;
-    @SerializedName("cicustom")
+    @MapperOptions(name = "cicustom")
     String ciCustom;
-    @SerializedName("cipassword")
+    @MapperOptions(name = "cipassword")
     String ciPassword;
-    @SerializedName("citype")
+    @MapperOptions(name = "citype")
     String ciType;
-    @SerializedName("ciuser")
+    @MapperOptions(name = "ciuser")
     String ciUser;
     Integer cores;
     String cpu;
-    @SerializedName("cpulimit")
+    @MapperOptions(name = "cpulimit")
     Double cpuLimit;
-    @SerializedName("cpuunits")
+    @MapperOptions(name = "cpuunits")
     Integer cpuUnits;
     String description;
-    @SerializedName("efidisk0")
+    @MapperOptions(name = "efidisk0")
     String efiDisk;
     Integer freeze;
-    @SerializedName("hookscript")
+    @MapperOptions(name = "hookscript")
     String hookScript;
     String hotplug;
     String hugepages;
-    @SerializedName("ivshmem")
+    @MapperOptions(name = "ivshmem")
     String interVMSharedMemory;
-    @SerializedName("keephugepages")
+    @MapperOptions(name = "keephugepages")
     Integer keepHugepages;
     String keyboard;
     Integer kvm;
-    @SerializedName("localtime")
+    @MapperOptions(name = "localtime")
     Integer localTime;
     String lock;
     String machine;
@@ -65,39 +65,39 @@ public class QemuVMConfig {
     String name;
     String nameserver;
     Integer numa;
-    @SerializedName("onboot")
+    @MapperOptions(name = "onboot")
     String startOnBoot;
-    @SerializedName("ostype")
+    @MapperOptions(name = "ostype")
     String osType;
     Integer protection;
-    @SerializedName("reboot")
+    @MapperOptions(name = "reboot")
     Integer allowReboot;
-    @SerializedName("rng0")
+    @MapperOptions(name = "rng0")
     String randomNumberGenerator;
-    @SerializedName("scsihw")
+    @MapperOptions(name = "scsihw")
     String scsiHw;
-    @SerializedName("searchdomain")
+    @MapperOptions(name = "searchdomain")
     String searchDomain;
     Integer shares;
     String smbios1;
     Integer sockets;
     String spiceEnhancements;
-    @SerializedName("sshkeys")
+    @MapperOptions(name = "sshkeys")
     String sshKeys;
-    @SerializedName("startdate")
+    @MapperOptions(name = "startdate")
     String startDate;
     String startup;
     Integer tablet;
     String tags;
-    @SerializedName("tdf")
+    @MapperOptions(name = "tdf")
     Integer timeDriftFix;
-    @SerializedName("template")
+    @MapperOptions(name = "template")
     Integer enableTemplate;
     Integer vcpus;
     String vga;
-    @SerializedName("vmgenid")
+    @MapperOptions(name = "vmgenid")
     String vmGenId;
-    @SerializedName("vmstatestorage")
+    @MapperOptions(name = "vmstatestorage")
     String vmStateStorage;
     String watchdog;
     final Map<Integer, String> hostPci = new HashMap<>();

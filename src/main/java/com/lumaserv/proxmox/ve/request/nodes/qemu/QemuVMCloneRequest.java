@@ -1,22 +1,22 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMCloneRequest extends ProxMoxVERequest<QemuVMCloneRequest> {
 
-    @SerializedName("newid")
+    @MapperOptions(name = "newid")
     Integer newId;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     Integer bandwidthLimit;
     String description;
     String format;
     Integer full;
     String name;
     String pool;
-    @SerializedName("snapname")
+    @MapperOptions(name = "snapname")
     String snapshotName;
     String storage;
     String target;

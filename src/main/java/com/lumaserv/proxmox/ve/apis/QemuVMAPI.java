@@ -11,6 +11,7 @@ import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMStatus;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.firewall.*;
 import com.lumaserv.proxmox.ve.request.nodes.qemu.*;
+import com.lumaserv.proxmox.ve.response.nodes.qemu.QemuVMVNCProxyResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.javawebstack.abstractdata.AbstractElement;
@@ -104,6 +105,10 @@ public class QemuVMAPI {
 
     public String delete(QemuVMDeleteRequest request) throws ProxMoxVEException {
         return request("DELETE", "", request, String.class);
+    }
+
+    public QemuVMVNCProxyResponse vncProxy(QemuVMVNCProxyRequest request) throws ProxMoxVEException {
+        return request("POST", "/vncproxy", request, QemuVMVNCProxyResponse.class);
     }
 
     public QemuVMConfig getConfig() throws ProxMoxVEException {

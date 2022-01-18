@@ -1,14 +1,14 @@
 package com.lumaserv.proxmox.ve.model;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class TaskLogLine {
 
-    @SerializedName("n")
+    @MapperOptions(name = "n")
     Integer line;
-    @SerializedName("t")
+    @MapperOptions(name = "t")
     String text;
 
 }

@@ -1,15 +1,15 @@
 package com.lumaserv.proxmox.ve.response.access;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class AccessTicketCreateResponse {
 
     String username;
-    @SerializedName("CSRFPreventionToken")
+    @MapperOptions(name = "CSRFPreventionToken")
     String csrfPreventionToken;
-    @SerializedName("clustername")
+    @MapperOptions(name = "clustername")
     String clusterName;
     String ticket;
 

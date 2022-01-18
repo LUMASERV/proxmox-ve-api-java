@@ -1,17 +1,17 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMShutdownRequest extends ProxMoxVERequest<QemuVMShutdownRequest> {
 
-    @SerializedName("forceStop")
+    @MapperOptions(name = "forceStop")
     Integer forceStop;
-    @SerializedName("keepActive")
+    @MapperOptions(name = "keepActive")
     Integer keepActive;
-    @SerializedName("skiplock")
+    @MapperOptions(name = "skiplock")
     Integer skipLock;
     Integer timeout;
 

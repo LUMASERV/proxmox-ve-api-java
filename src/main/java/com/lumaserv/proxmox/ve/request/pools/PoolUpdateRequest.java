@@ -1,8 +1,8 @@
 package com.lumaserv.proxmox.ve.request.pools;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ public class PoolUpdateRequest extends ProxMoxVERequest<PoolUpdateRequest> {
 
     String comment;
     Integer delete;
-    @SerializedName("storage")
+    @MapperOptions(name = "storage")
     String storages;
-    @SerializedName("vms")
+    @MapperOptions(name = "vms")
     String VMs;
 
     public PoolUpdateRequest setDelete(Boolean delete) {

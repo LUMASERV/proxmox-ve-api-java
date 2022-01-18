@@ -1,14 +1,14 @@
 package com.lumaserv.proxmox.ve.model.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class SDNVNet {
 
-    @SerializedName("vnet")
+    @MapperOptions(name = "vnet")
     String name;
-    @SerializedName("vlanaware")
+    @MapperOptions(name = "vlanaware")
     Integer vlanAware;
     String zone;
     String digest;

@@ -1,15 +1,15 @@
 package com.lumaserv.proxmox.ve.request.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class FirewallIPSetEntryUpdateRequest extends ProxMoxVERequest<FirewallIPSetEntryUpdateRequest> {
 
     String comment;
     String digest;
-    @SerializedName("nomatch")
+    @MapperOptions(name = "nomatch")
     Integer noMatch;
 
     public FirewallIPSetEntryUpdateRequest setNoMatch(Boolean noMatch) {

@@ -1,22 +1,22 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMMoveDiskRequest extends ProxMoxVERequest<QemuVMMoveDiskRequest> {
 
     String disk;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     Integer bandwidthLimit;
     String format;
     String storage;
-    @SerializedName("target-digest")
+    @MapperOptions(name = "target-digest")
     String targetDigest;
-    @SerializedName("target-disk")
+    @MapperOptions(name = "target-disk")
     String targetDisk;
-    @SerializedName("target-vmid")
+    @MapperOptions(name = "target-vmid")
     Integer targetVMId;
 
 }

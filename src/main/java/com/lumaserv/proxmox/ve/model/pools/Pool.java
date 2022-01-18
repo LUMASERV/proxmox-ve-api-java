@@ -1,7 +1,7 @@
 package com.lumaserv.proxmox.ve.model.pools;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 public class Pool {
 
-    @SerializedName("poolid")
+    @MapperOptions(name = "poolid")
     String id;
     String comment;
     Member[] members;
@@ -23,7 +23,7 @@ public class Pool {
 
         String type;
         String node;
-        @SerializedName("vmid")
+        @MapperOptions(name = "vmid")
         Integer vmId;
         String name;
 

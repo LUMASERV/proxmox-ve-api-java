@@ -1,53 +1,53 @@
 package com.lumaserv.proxmox.ve.request.storage;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class StorageUpdateRequest extends ProxMoxVERequest<StorageUpdateRequest> {
 
     String digest;
     String delete;
-    @SerializedName("authsupported")
+    @MapperOptions(name = "authsupported")
     String authSupported;
     String base;
-    @SerializedName("blocksize")
+    @MapperOptions(name = "blocksize")
     String blockSize;
-    @SerializedName("bwlimit")
+    @MapperOptions(name = "bwlimit")
     String bandwidthLimit;
-    @SerializedName("comstar_hg")
+    @MapperOptions(name = "comstar_hg")
     String comstarHostGroup;
-    @SerializedName("comstar_tg")
+    @MapperOptions(name = "comstar_tg")
     String comstarTargetGroup;
     String content;
     String datastore;
     Integer disable;
     String domain;
-    @SerializedName("encryption-key")
+    @MapperOptions(name = "encryption-key")
     String encryptionKey;
     String export;
     String fingerprint;
     String format;
     Integer fuse;
     String isMountpoint;
-    @SerializedName("iscsiprovider")
+    @MapperOptions(name = "iscsiprovider")
     String iScsiProvider;
     Integer krbd;
-    @SerializedName("lio_tpg")
+    @MapperOptions(name = "lio_tpg")
     String lioTargetPortalGroup;
-    @SerializedName("master-pubkey")
+    @MapperOptions(name = "master-pubkey")
     String masterPublicKey;
-    @SerializedName("maxfiles")
+    @MapperOptions(name = "maxfiles")
     Integer maxFiles;
     Integer mkdir;
-    @SerializedName("monhost")
+    @MapperOptions(name = "monhost")
     String monitorHost;
     String mountpoint;
     String namespace;
     Integer nocow;
     String nodes;
-    @SerializedName("nowritecache")
+    @MapperOptions(name = "nowritecache")
     Integer noWriteCache;
     String options;
     String password;
@@ -55,28 +55,28 @@ public class StorageUpdateRequest extends ProxMoxVERequest<StorageUpdateRequest>
     String pool;
     Integer port;
     String portal;
-    @SerializedName("prune-backups")
+    @MapperOptions(name = "prune-backups")
     String pruneBackups;
-    @SerializedName("saferemove")
+    @MapperOptions(name = "saferemove")
     Integer safeRemove;
-    @SerializedName("saferemove_throughput")
+    @MapperOptions(name = "saferemove_throughput")
     String safeRemoveThroughput;
     String server;
     String server2;
     String share;
     Integer shared;
-    @SerializedName("smbversion")
+    @MapperOptions(name = "smbversion")
     String smbVersion;
     Integer sparse;
-    @SerializedName("subdir")
+    @MapperOptions(name = "subdir")
     String subDirectory;
     Integer taggedOnly;
     String target;
-    @SerializedName("thinpool")
+    @MapperOptions(name = "thinpool")
     String thinPool;
     String transport;
     String username;
-    @SerializedName("vgname")
+    @MapperOptions(name = "vgname")
     String vgName;
     String volume;
 

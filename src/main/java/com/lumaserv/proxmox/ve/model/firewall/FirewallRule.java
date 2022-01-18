@@ -1,7 +1,7 @@
 package com.lumaserv.proxmox.ve.model.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class FirewallRule {
@@ -14,19 +14,19 @@ public class FirewallRule {
     String comment;
     String source;
     String type;
-    @SerializedName("dport")
+    @MapperOptions(name = "dport")
     String destinationPort;
-    @SerializedName("sport")
+    @MapperOptions(name = "sport")
     String sourcePort;
-    @SerializedName("ipversion")
+    @MapperOptions(name = "ipversion")
     Integer ipVersion;
-    @SerializedName("dest")
+    @MapperOptions(name = "dest")
     String destination;
-    @SerializedName("proto")
+    @MapperOptions(name = "proto")
     String protocol;
     String macro;
     String iface;
-    @SerializedName("icmp-type")
+    @MapperOptions(name = "icmp-type")
     String icmpType;
 
     public Boolean getEnable() {

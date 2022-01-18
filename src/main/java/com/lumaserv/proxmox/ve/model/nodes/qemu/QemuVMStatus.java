@@ -1,9 +1,9 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.ProxMoxVEClient;
 import lombok.Getter;
 import org.javawebstack.abstractdata.AbstractObject;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,43 +13,43 @@ public class QemuVMStatus {
 
     String template;
     Integer agent;
-    @SerializedName("diskread")
+    @MapperOptions(name = "diskread")
     Long diskRead;
     Integer pid;
-    @SerializedName("mem")
+    @MapperOptions(name = "mem")
     Long memory;
-    @SerializedName("running-qemu")
+    @MapperOptions(name = "running-qemu")
     String qemuVersion;
     Double cpus;
     String lock;
-    @SerializedName("maxdisk")
+    @MapperOptions(name = "maxdisk")
     Long maxDisk;
-    @SerializedName("maxmem")
+    @MapperOptions(name = "maxmem")
     Long maxMemory;
     String name;
-    @SerializedName("qmpstatus")
+    @MapperOptions(name = "qmpstatus")
     String qmpStatus;
     Integer spice;
     String tags;
     Integer uptime;
     Long balloon;
-    @SerializedName("running-machine")
+    @MapperOptions(name = "running-machine")
     String machine;
     Double cpu;
-    @SerializedName("netout")
+    @MapperOptions(name = "netout")
     Long netOut;
-    @SerializedName("freemem")
+    @MapperOptions(name = "freemem")
     Long freeMemory;
     Long disk;
-    @SerializedName("diskwrite")
+    @MapperOptions(name = "diskwrite")
     Long diskWrite;
-    @SerializedName("netin")
+    @MapperOptions(name = "netin")
     Long netIn;
     String status;
     HA ha;
-    @SerializedName("ballooninfo")
+    @MapperOptions(name = "ballooninfo")
     BalloonInfo balloonInfo;
-    @SerializedName("proxmox-support")
+    @MapperOptions(name = "proxmox-support")
     ProxMoxSupport proxMoxSupport;
     transient final Map<String, NIC> nics = new HashMap<>();
     transient final Map<String, BlockStat> blockStats = new HashMap<>();
@@ -73,9 +73,9 @@ public class QemuVMStatus {
     @Getter
     public static class NIC {
 
-        @SerializedName("netout")
+        @MapperOptions(name = "netout")
         Long netOut;
-        @SerializedName("netin")
+        @MapperOptions(name = "netin")
         Long netIn;
 
     }
@@ -97,19 +97,19 @@ public class QemuVMStatus {
     @Getter
     public static class BalloonInfo {
 
-        @SerializedName("free_mem")
+        @MapperOptions(name = "free_mem")
         Long freeMemory;
         Long actual;
         Long majorPageFaults;
-        @SerializedName("mem_swapped_out")
+        @MapperOptions(name = "mem_swapped_out")
         Long memorySwappedOut;
-        @SerializedName("total_mem")
+        @MapperOptions(name = "total_mem")
         Long totalMemory;
         Long lastUpdate;
-        @SerializedName("mem_swapped_in")
+        @MapperOptions(name = "mem_swapped_in")
         Long memorySwappedIn;
         Long minorPageFaults;
-        @SerializedName("max_mem")
+        @MapperOptions(name = "max_mem")
         Long maxMemory;
 
     }
@@ -149,17 +149,17 @@ public class QemuVMStatus {
     @Getter
     public static class ProxMoxSupport {
 
-        @SerializedName("pbs-dirty-bitmap-migration")
+        @MapperOptions(name = "pbs-dirty-bitmap-migration")
         Boolean pbsDirtyBitmapMigration;
-        @SerializedName("query-bitmap-info")
+        @MapperOptions(name = "query-bitmap-info")
         Boolean queryBitmapInfo;
-        @SerializedName("pbs-masterkey")
+        @MapperOptions(name = "pbs-masterkey")
         Boolean pbsMasterkey;
-        @SerializedName("pbs-dirty-bitmap")
+        @MapperOptions(name = "pbs-dirty-bitmap")
         Boolean pbsDirtyBitmap;
-        @SerializedName("pbs-dirty-bitmap-savevm")
+        @MapperOptions(name = "pbs-dirty-bitmap-savevm")
         Boolean pbsDirtyBitmapSavevm;
-        @SerializedName("pbs-library-version")
+        @MapperOptions(name = "pbs-library-version")
         String pbsLibraryVersion;
 
     }

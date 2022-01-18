@@ -1,13 +1,13 @@
 package com.lumaserv.proxmox.ve.model.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class SDNSubnet {
 
     String vnet;
-    @SerializedName("subnet")
+    @MapperOptions(name = "subnet")
     String name;
     String zone;
     String digest;

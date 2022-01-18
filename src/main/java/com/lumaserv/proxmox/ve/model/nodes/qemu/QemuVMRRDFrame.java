@@ -1,29 +1,29 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class QemuVMRRDFrame {
 
     Long disk;
-    @SerializedName("mem")
+    @MapperOptions(name = "mem")
     Double memory;
-    @SerializedName("maxdisk")
+    @MapperOptions(name = "maxdisk")
     Long maxDisk;
     Double cpu;
-    @SerializedName("diskread")
+    @MapperOptions(name = "diskread")
     Long diskRead;
-    @SerializedName("maxcpu")
+    @MapperOptions(name = "maxcpu")
     Double maxCpu;
-    @SerializedName("netout")
+    @MapperOptions(name = "netout")
     Double netOut;
     Long time;
-    @SerializedName("diskwrite")
+    @MapperOptions(name = "diskwrite")
     Long diskWrite;
-    @SerializedName("maxmem")
+    @MapperOptions(name = "maxmem")
     Double maxMemory;
-    @SerializedName("netin")
+    @MapperOptions(name = "netin")
     Double netIn;
 
 }

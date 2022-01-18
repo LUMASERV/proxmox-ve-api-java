@@ -1,25 +1,25 @@
 package com.lumaserv.proxmox.ve.request.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class FirewallOptionsUpdateRequest extends ProxMoxVERequest<FirewallOptionsUpdateRequest> {
 
     Integer dhcp;
     Integer enable;
-    @SerializedName("ipfilter")
+    @MapperOptions(name = "ipfilter")
     Integer ipFilter;
     String logLevelIn;
     String logLevelOut;
-    @SerializedName("macfilter")
+    @MapperOptions(name = "macfilter")
     Integer macFilter;
     Integer ndp;
     FirewallRule.Action policyIn;
     FirewallRule.Action policyOut;
-    @SerializedName("radv")
+    @MapperOptions(name = "radv")
     Integer routerAdvertisement;
 
     public FirewallOptionsUpdateRequest setDhcp(Boolean dhcp) {

@@ -1,21 +1,21 @@
 package com.lumaserv.proxmox.ve.model.nodes;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class Node {
 
-    @SerializedName("node")
+    @MapperOptions(name = "node")
     String name;
     String status;
     Double cpu;
     String level;
-    @SerializedName("maxcpu")
+    @MapperOptions(name = "maxcpu")
     Integer maxCpu;
-    @SerializedName("maxmem")
+    @MapperOptions(name = "maxmem")
     Long maxMemory;
-    @SerializedName("mem")
+    @MapperOptions(name = "mem")
     Long memory;
     String sslFingerprint;
     Integer uptime;

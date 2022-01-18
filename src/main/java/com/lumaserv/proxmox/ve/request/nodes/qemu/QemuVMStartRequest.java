@@ -1,25 +1,25 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class QemuVMStartRequest extends ProxMoxVERequest<QemuVMStartRequest> {
 
-    @SerializedName("skiplock")
+    @MapperOptions(name = "skiplock")
     Integer skipLock;
     Integer timeout;
-    @SerializedName("force-cpu")
+    @MapperOptions(name = "force-cpu")
     String forceCpu;
     String machine;
-    @SerializedName("migratedfrom")
+    @MapperOptions(name = "migratedfrom")
     String migratedFrom;
     String migrationNetwork;
     String migrationType;
-    @SerializedName("stateuri")
+    @MapperOptions(name = "stateuri")
     String stateUri;
-    @SerializedName("targetstorage")
+    @MapperOptions(name = "targetstorage")
     String targetStorage;
 
     public QemuVMStartRequest setSkipLock(Boolean skipLock) {

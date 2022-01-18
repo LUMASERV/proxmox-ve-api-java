@@ -1,35 +1,35 @@
 package com.lumaserv.proxmox.ve.request.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class SDNZoneCreateRequest extends ProxMoxVERequest<SDNZoneCreateRequest> {
 
-    @SerializedName("zone")
+    @MapperOptions(name = "zone")
     String name;
     String type;
     String bridge;
     String controller;
     String dns;
-    @SerializedName("dnszone")
+    @MapperOptions(name = "dnszone")
     String dnsZone;
-    @SerializedName("dp-id")
+    @MapperOptions(name = "dp-id")
     Integer dataPlaneId;
-    @SerializedName("exitnodes")
+    @MapperOptions(name = "exitnodes")
     String exitNodes;
     String ipam;
     String mac;
     Integer mtu;
     String nodes;
     String peers;
-    @SerializedName("reversedns")
+    @MapperOptions(name = "reversedns")
     String reverseDns;
     Integer tag;
-    @SerializedName("vlan-protocol")
+    @MapperOptions(name = "vlan-protocol")
     String vlanProtocol;
-    @SerializedName("vrf-vxlan")
+    @MapperOptions(name = "vrf-vxlan")
     Integer vrfVxlan;
 
 }

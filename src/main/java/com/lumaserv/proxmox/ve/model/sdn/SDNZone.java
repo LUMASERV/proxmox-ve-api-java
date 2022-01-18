@@ -1,12 +1,12 @@
 package com.lumaserv.proxmox.ve.model.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class SDNZone {
 
-    @SerializedName("zone")
+    @MapperOptions(name = "zone")
     String name;
     String nodes;
     String ipam;
@@ -15,11 +15,11 @@ public class SDNZone {
     String type;
     Integer mtu;
     String dns;
-    @SerializedName("dnszone")
+    @MapperOptions(name = "dnszone")
     String dnsZone;
     String pending;
     String state;
-    @SerializedName("reversedns")
+    @MapperOptions(name = "reversedns")
     String reverseDns;
 
 }

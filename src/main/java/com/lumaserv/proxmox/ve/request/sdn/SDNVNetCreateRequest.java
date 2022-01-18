@@ -1,21 +1,21 @@
 package com.lumaserv.proxmox.ve.request.sdn;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.AccessLevel;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class SDNVNetCreateRequest extends ProxMoxVERequest<SDNVNetCreateRequest> {
 
-    @SerializedName("vnet")
+    @MapperOptions(name = "vnet")
     String name;
     String zone;
     String alias;
     Integer tag;
     @Setter(AccessLevel.NONE)
     String type = "vnet";
-    @SerializedName("vlanaware")
+    @MapperOptions(name = "vlanaware")
     Integer vlanAware;
 
     public SDNVNetCreateRequest setVlanAware(Boolean vlanAware) {

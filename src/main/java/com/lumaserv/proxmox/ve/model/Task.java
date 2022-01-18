@@ -1,25 +1,25 @@
 package com.lumaserv.proxmox.ve.model;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
 public class Task {
 
     String id;
-    @SerializedName("upid")
+    @MapperOptions(name = "upid")
     String upId;
     String node;
-    @SerializedName("endtime")
+    @MapperOptions(name = "endtime")
     Long endTime;
-    @SerializedName("starttime")
+    @MapperOptions(name = "starttime")
     Long startTime;
-    @SerializedName("pstart")
+    @MapperOptions(name = "pstart")
     Long pStart;
     String type;
     String user;
     String status;
-    @SerializedName("exitstatus")
+    @MapperOptions(name = "exitstatus")
     String exitStatus;
     Integer pid;
 

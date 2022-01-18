@@ -1,9 +1,9 @@
 package com.lumaserv.proxmox.ve.request.firewall;
 
-import com.google.gson.annotations.SerializedName;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import lombok.Setter;
+import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Setter
 public class FirewallRuleCreateRequest extends ProxMoxVERequest<FirewallRuleCreateRequest> {
@@ -16,19 +16,19 @@ public class FirewallRuleCreateRequest extends ProxMoxVERequest<FirewallRuleCrea
     String comment;
     String source;
     String type;
-    @SerializedName("dport")
+    @MapperOptions(name = "dport")
     String destinationPort;
-    @SerializedName("sport")
+    @MapperOptions(name = "sport")
     String sourcePort;
-    @SerializedName("ipversion")
+    @MapperOptions(name = "ipversion")
     Integer ipVersion;
-    @SerializedName("dest")
+    @MapperOptions(name = "dest")
     String destination;
-    @SerializedName("proto")
+    @MapperOptions(name = "proto")
     String protocol;
     String macro;
     String iface;
-    @SerializedName("icmp-type")
+    @MapperOptions(name = "icmp-type")
     String icmpType;
 
     public FirewallRuleCreateRequest setEnable(Boolean enable) {
