@@ -69,6 +69,11 @@ public class ProxMoxVEClient {
         return this;
     }
 
+    public ProxMoxVEClient debug() {
+        client.debug();
+        return this;
+    }
+
     public <T> T request(String method, String path, ProxMoxVERequest<?> request, Class<T> responseType) throws ProxMoxVEException {
         AbstractObject object = MAPPER.toAbstract(request).object();
         if(request != null) {
