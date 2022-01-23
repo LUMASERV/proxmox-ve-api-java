@@ -209,7 +209,7 @@ public class ClusterAPI {
     }
 
     public int nextId() throws ProxMoxVEException {
-        return request("GET", "/nextid", null, int.class);
+        return Integer.parseInt(request("GET", "/nextid", null, String.class));
     }
 
 }
