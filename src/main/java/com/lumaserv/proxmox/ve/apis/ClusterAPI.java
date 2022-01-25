@@ -4,10 +4,13 @@ import com.lumaserv.proxmox.ve.ProxMoxVEClient;
 import com.lumaserv.proxmox.ve.ProxMoxVEException;
 import com.lumaserv.proxmox.ve.model.Task;
 import com.lumaserv.proxmox.ve.model.firewall.*;
+import com.lumaserv.proxmox.ve.model.resource.Resource;
 import com.lumaserv.proxmox.ve.model.sdn.SDNSubnet;
 import com.lumaserv.proxmox.ve.model.sdn.SDNVNet;
 import com.lumaserv.proxmox.ve.model.sdn.SDNZone;
+import com.lumaserv.proxmox.ve.request.GenericProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import com.lumaserv.proxmox.ve.request.cluster.ResourcesGetRequest;
 import com.lumaserv.proxmox.ve.request.firewall.*;
 import com.lumaserv.proxmox.ve.request.sdn.*;
 import lombok.AllArgsConstructor;
@@ -210,6 +213,14 @@ public class ClusterAPI {
 
     public int nextId() throws ProxMoxVEException {
         return Integer.parseInt(request("GET", "/nextid", null, String.class));
+    }
+
+    public List<Resource> getResources() throws ProxMoxVEException {
+        return getResources(null);
+    }
+
+    public List<Resource> getResources(String type) throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/resources", new GenericProxMoxVERequest().set("type", type), Resource[].class));
     }
 
 }

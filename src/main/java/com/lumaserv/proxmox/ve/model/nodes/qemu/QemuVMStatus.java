@@ -51,8 +51,10 @@ public class QemuVMStatus {
     BalloonInfo balloonInfo;
     @MapperOptions(name = "proxmox-support")
     ProxMoxSupport proxMoxSupport;
-    transient final Map<String, NIC> nics = new HashMap<>();
-    transient final Map<String, BlockStat> blockStats = new HashMap<>();
+    @MapperOptions(generic = { String.class, NIC.class })
+    Map<String, NIC> nics = new HashMap<>();
+    @MapperOptions(name = "blockstat", generic = { String.class, BlockStat.class })
+    Map<String, BlockStat> blockStats = new HashMap<>();
 
     public Boolean getAgent() {
         return agent == null ? null : (agent > 0);
@@ -162,15 +164,6 @@ public class QemuVMStatus {
         @MapperOptions(name = "pbs-library-version")
         String pbsLibraryVersion;
 
-    }
-
-    public static QemuVMStatus from(AbstractObject object) {
-        QemuVMStatus status = ProxMoxVEClient.MAPPER.fromAbstract(object, QemuVMStatus.class);
-        if(object.has("nics") && object.get("nics").isObject())
-            object.object("nics").forEach((k, e) -> status.getNics().put(k, ProxMoxVEClient.MAPPER.fromAbstract(e, NIC.class)));
-        if(object.has("blockstat") && object.get("blockstat").isObject())
-            object.object("blockstat").forEach((k, e) -> status.getBlockStats().put(k, ProxMoxVEClient.MAPPER.fromAbstract(e, BlockStat.class)));
-        return status;
     }
 
 }

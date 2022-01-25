@@ -10,6 +10,7 @@ import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMStatus;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.firewall.*;
+import com.lumaserv.proxmox.ve.request.nodes.RRDDataGetRequest;
 import com.lumaserv.proxmox.ve.request.nodes.qemu.*;
 import com.lumaserv.proxmox.ve.response.nodes.qemu.QemuVMVNCProxyResponse;
 import lombok.AllArgsConstructor;
@@ -147,12 +148,12 @@ public class QemuVMAPI {
         request("PUT", "/unlink", request, null);
     }
 
-    public List<QemuVMRRDFrame> getRRDData(QemuVMRRDDataGetRequest request) throws ProxMoxVEException {
+    public List<QemuVMRRDFrame> getRRDData(RRDDataGetRequest request) throws ProxMoxVEException {
         return Arrays.asList(request("GET", "/rrddata", request, QemuVMRRDFrame[].class));
     }
 
     public QemuVMStatus getStatus() throws ProxMoxVEException {
-        return QemuVMStatus.from(request("GET", "/status/current", null, AbstractObject.class));
+        return request("GET", "/status/current", null, QemuVMStatus.class);
     }
 
     public List<FirewallRule> getFirewallRules() throws ProxMoxVEException {

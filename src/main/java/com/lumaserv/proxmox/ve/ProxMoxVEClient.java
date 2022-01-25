@@ -3,6 +3,7 @@ package com.lumaserv.proxmox.ve;
 import com.lumaserv.proxmox.ve.apis.AccessAPI;
 import com.lumaserv.proxmox.ve.apis.ClusterAPI;
 import com.lumaserv.proxmox.ve.apis.NodeAPI;
+import com.lumaserv.proxmox.ve.mapper.ResourceMapper;
 import com.lumaserv.proxmox.ve.model.nodes.Node;
 import com.lumaserv.proxmox.ve.model.pools.Pool;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
@@ -15,9 +16,9 @@ import com.lumaserv.proxmox.ve.request.storage.StorageGetRequest;
 import com.lumaserv.proxmox.ve.request.storage.StorageUpdateRequest;
 import com.lumaserv.proxmox.ve.response.access.AccessTicketCreateResponse;
 import org.javawebstack.abstractdata.AbstractElement;
-import org.javawebstack.abstractdata.AbstractMapper;
 import org.javawebstack.abstractdata.AbstractObject;
-import org.javawebstack.abstractdata.NamingPolicy;
+import org.javawebstack.abstractdata.mapper.Mapper;
+import org.javawebstack.abstractdata.mapper.naming.NamingPolicy;
 import org.javawebstack.httpclient.HTTPClient;
 import org.javawebstack.httpclient.HTTPRequest;
 
@@ -27,7 +28,9 @@ import java.util.List;
 
 public class ProxMoxVEClient {
 
-    public static final AbstractMapper MAPPER = new AbstractMapper().setNamingPolicy(NamingPolicy.SNAKE_CASE);
+    public static final Mapper MAPPER = new Mapper()
+            .namingPolicy(NamingPolicy.SNAKE_CASE)
+            .adapter(new ResourceMapper());
 
     final HTTPClient client;
     final ClusterAPI clusterAPI = new ClusterAPI(this);;
@@ -75,15 +78,10 @@ public class ProxMoxVEClient {
     }
 
     public <T> T request(String method, String path, ProxMoxVERequest<?> request, Class<T> responseType) throws ProxMoxVEException {
-        AbstractObject object = MAPPER.toAbstract(request).object();
-        if(request != null) {
-            for(String key : request.getAdditionalParameters().keySet())
-                object.set(key, request.getAdditionalParameters().get(key));
-        }
-        AbstractElement res = request(method, path, object);
+        AbstractElement res = request(method, path, MAPPER.map(request).object());
         if(responseType == null)
             return null;
-        return MAPPER.fromAbstract(res, responseType);
+        return MAPPER.map(res, responseType);
     }
 
     public AbstractElement request(String method, String path, AbstractObject request) throws ProxMoxVEException {

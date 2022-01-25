@@ -221,7 +221,7 @@ public class QemuVMConfig {
     }
 
     public static QemuVMConfig from(AbstractObject object) {
-        QemuVMConfig config = ProxMoxVEClient.MAPPER.fromAbstract(object, QemuVMConfig.class);
+        QemuVMConfig config = ProxMoxVEClient.MAPPER.map(object, QemuVMConfig.class);
         parseMap(object, "hostpci", config.getHostPci());
         parseMap(object, "ide", config.getIde());
         parseMap(object, "ipconfig", config.getIpConfig());

@@ -7,12 +7,14 @@ import com.lumaserv.proxmox.ve.model.TaskLogLine;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallOptions;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVM;
+import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
 import com.lumaserv.proxmox.ve.model.storage.StorageVolume;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.firewall.FirewallOptionsUpdateRequest;
 import com.lumaserv.proxmox.ve.request.firewall.FirewallRuleCreateRequest;
 import com.lumaserv.proxmox.ve.request.firewall.FirewallRuleUpdateRequest;
+import com.lumaserv.proxmox.ve.request.nodes.RRDDataGetRequest;
 import com.lumaserv.proxmox.ve.request.nodes.TaskGetRequest;
 import com.lumaserv.proxmox.ve.request.nodes.TaskLogRequest;
 import com.lumaserv.proxmox.ve.request.nodes.VZDumpRequest;
@@ -149,6 +151,10 @@ public class NodeAPI {
 
     public QemuVMAPI qemu(int vmId) {
         return new QemuVMAPI(this, vmId);
+    }
+
+    public List<QemuVMRRDFrame> getRRDData(RRDDataGetRequest request) throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/rrddata", request, QemuVMRRDFrame[].class));
     }
 
 }
