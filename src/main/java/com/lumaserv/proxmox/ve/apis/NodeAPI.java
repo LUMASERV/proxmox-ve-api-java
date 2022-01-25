@@ -6,6 +6,7 @@ import com.lumaserv.proxmox.ve.model.Task;
 import com.lumaserv.proxmox.ve.model.TaskLogLine;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallOptions;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
+import com.lumaserv.proxmox.ve.model.nodes.NodeRRDFrame;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVM;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
@@ -153,8 +154,8 @@ public class NodeAPI {
         return new QemuVMAPI(this, vmId);
     }
 
-    public List<QemuVMRRDFrame> getRRDData(RRDDataGetRequest request) throws ProxMoxVEException {
-        return Arrays.asList(request("GET", "/rrddata", request, QemuVMRRDFrame[].class));
+    public List<NodeRRDFrame> getRRDData(RRDDataGetRequest request) throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/rrddata", request, NodeRRDFrame[].class));
     }
 
 }
