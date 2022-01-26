@@ -1,5 +1,8 @@
 package com.lumaserv.proxmox.ve.model.resource;
 
+import lombok.Getter;
+
+@Getter
 public class NodeResource extends Resource {
 
     String node;

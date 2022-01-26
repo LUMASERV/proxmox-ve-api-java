@@ -9,6 +9,7 @@ import com.lumaserv.proxmox.ve.model.pools.Pool;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.access.AccessTicketCreateRequest;
+import com.lumaserv.proxmox.ve.request.nodes.RRDDataGetRequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolCreateRequest;
 import com.lumaserv.proxmox.ve.request.pools.PoolUpdateRequest;
 import com.lumaserv.proxmox.ve.request.storage.StorageCreateRequest;
@@ -94,6 +95,11 @@ public class ProxMoxVEClient {
         }
         if(http.status() < 200 || http.status() > 299)
             throw new ProxMoxVEException(http);
+        try {
+            http.data();
+        } catch (Exception ex) {
+
+        }
         return http.data().object().get("data");
     }
 
