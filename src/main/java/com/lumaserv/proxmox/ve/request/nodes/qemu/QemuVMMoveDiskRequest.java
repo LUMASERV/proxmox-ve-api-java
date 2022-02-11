@@ -18,5 +18,11 @@ public class QemuVMMoveDiskRequest extends ProxMoxVERequest<QemuVMMoveDiskReques
     String targetDisk;
     @MapperOptions(name = "target-vmid")
     Integer targetVMId;
+    Integer delete;
+
+    public QemuVMMoveDiskRequest setDelete(Boolean delete) {
+        this.delete = delete == null ? null : (delete ? 1 : 0);
+        return this;
+    }
 
 }
