@@ -9,7 +9,7 @@ public class ProxMoxVEException extends Exception {
     final HTTPRequest request;
 
     public ProxMoxVEException(HTTPRequest request) {
-        super("[Status " + request.status() + "] " + request.string());
+        super("[Status " + request.status() + " " + request.statusMessage() + "] " + request.string());
         this.request = request;
     }
 
