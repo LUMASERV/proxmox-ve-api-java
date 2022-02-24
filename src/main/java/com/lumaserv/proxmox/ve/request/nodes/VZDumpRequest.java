@@ -48,6 +48,13 @@ public class VZDumpRequest extends ProxMoxVERequest<VZDumpRequest> {
     @MapperOptions(name = "vmid")
     String vmId;
     Integer zstd;
+    Integer force;
+    String archive;
+
+    public VZDumpRequest setForce(Boolean force) {
+        this.force = force == null ? null : (force ? 1 : 0);
+        return this;
+    }
 
     public VZDumpRequest setAll(Boolean all) {
         this.all = all == null ? null : (all ? 1 : 0);
