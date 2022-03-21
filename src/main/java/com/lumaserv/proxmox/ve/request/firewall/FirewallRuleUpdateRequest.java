@@ -12,7 +12,7 @@ public class FirewallRuleUpdateRequest extends ProxMoxVERequest<FirewallRuleUpda
     Integer pos;
     Integer enable;
     String digest;
-    FirewallRule.Action action;
+    String action;
     String comment;
     String source;
     String type;

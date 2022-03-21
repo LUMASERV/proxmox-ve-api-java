@@ -10,7 +10,7 @@ public class FirewallRule {
     Integer pos;
     Integer enable;
     String digest;
-    Action action;
+    String action;
     String comment;
     String source;
     String type;
