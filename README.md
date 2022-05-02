@@ -12,7 +12,7 @@ A Java Client for the ProxMox VE API
 <dependency>
     <groupId>com.lumaserv</groupId>
     <artifactId>proxmox-ve-api</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
