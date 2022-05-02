@@ -3,17 +3,7 @@ A Java Client for the ProxMox VE API
 
 ## Maven
 ```xml
-<repository>
-    <id>lumaserv</id>
-    <url>https://maven.lumaserv.cloud</url>
-</repository>
-```
-```xml
-<dependency>
-    <groupId>com.lumaserv</groupId>
-    <artifactId>proxmox-ve-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-</dependency>
+
 ```
 
 ## Usage

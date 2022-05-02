@@ -2,6 +2,7 @@ package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
 import com.lumaserv.proxmox.ve.util.UrlEncoder;
+import lombok.Getter;
 import lombok.Setter;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Setter
+@Getter
 public class QemuVMConfigUpdateRequest extends ProxMoxVERequest<QemuVMConfigUpdateRequest> {
 
     Integer acpi;

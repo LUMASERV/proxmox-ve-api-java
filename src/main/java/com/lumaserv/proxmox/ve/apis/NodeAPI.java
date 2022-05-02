@@ -8,7 +8,6 @@ import com.lumaserv.proxmox.ve.model.firewall.FirewallOptions;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.model.nodes.NodeRRDFrame;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVM;
-import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVMRRDFrame;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
 import com.lumaserv.proxmox.ve.model.storage.StorageVolume;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;

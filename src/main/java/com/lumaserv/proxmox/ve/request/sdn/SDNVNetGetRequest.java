@@ -1,7 +1,11 @@
 package com.lumaserv.proxmox.ve.request.sdn;
 
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class SDNVNetGetRequest extends ProxMoxVERequest<SDNVNetGetRequest> {
 
     Integer pending;

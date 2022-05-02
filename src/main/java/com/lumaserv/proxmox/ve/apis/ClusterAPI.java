@@ -10,7 +10,6 @@ import com.lumaserv.proxmox.ve.model.sdn.SDNVNet;
 import com.lumaserv.proxmox.ve.model.sdn.SDNZone;
 import com.lumaserv.proxmox.ve.request.GenericProxMoxVERequest;
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
-import com.lumaserv.proxmox.ve.request.cluster.ResourcesGetRequest;
 import com.lumaserv.proxmox.ve.request.firewall.*;
 import com.lumaserv.proxmox.ve.request.sdn.*;
 import lombok.AllArgsConstructor;

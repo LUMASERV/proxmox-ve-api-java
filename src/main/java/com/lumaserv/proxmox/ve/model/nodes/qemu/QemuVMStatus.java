@@ -1,8 +1,6 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
-import com.lumaserv.proxmox.ve.ProxMoxVEClient;
 import lombok.Getter;
-import org.javawebstack.abstractdata.AbstractObject;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.HashMap;

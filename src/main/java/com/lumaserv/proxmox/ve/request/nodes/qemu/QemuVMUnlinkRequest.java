@@ -1,12 +1,14 @@
 package com.lumaserv.proxmox.ve.request.nodes.qemu;
 
 import com.lumaserv.proxmox.ve.request.ProxMoxVERequest;
+import lombok.Getter;
 import lombok.Setter;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.List;
 
 @Setter
+@Getter
 public class QemuVMUnlinkRequest extends ProxMoxVERequest<QemuVMUnlinkRequest> {
 
     @MapperOptions(name = "idlist")
