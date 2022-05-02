@@ -1,8 +1,10 @@
 package com.lumaserv.proxmox.ve.model.resource;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class QemuVMResource extends Resource {
 
     Double cpu;

@@ -1,9 +1,11 @@
 package com.lumaserv.proxmox.ve.model.firewall;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 @Getter
+@Setter
 public class FirewallRule {
 
     String log;

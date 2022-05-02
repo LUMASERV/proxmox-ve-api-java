@@ -1,12 +1,14 @@
 package com.lumaserv.proxmox.ve.model.pools;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Getter
+@Setter
 public class Pool {
 
     @MapperOptions(name = "poolid")
@@ -19,6 +21,7 @@ public class Pool {
     }
 
     @Getter
+    @Setter
     public static class Member {
 
         String type;

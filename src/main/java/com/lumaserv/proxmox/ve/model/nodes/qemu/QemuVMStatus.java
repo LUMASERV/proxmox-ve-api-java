@@ -1,12 +1,14 @@
 package com.lumaserv.proxmox.ve.model.nodes.qemu;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.javawebstack.abstractdata.mapper.annotation.MapperOptions;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Getter
+@Setter
 public class QemuVMStatus {
 
     String template;

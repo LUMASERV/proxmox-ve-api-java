@@ -1,8 +1,10 @@
 package com.lumaserv.proxmox.ve.response.nodes.qemu;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class QemuVMVNCProxyResponse {
 
     String cert;
