@@ -15,6 +15,7 @@ import com.lumaserv.proxmox.ve.request.storage.StorageCreateRequest;
 import com.lumaserv.proxmox.ve.request.storage.StorageGetRequest;
 import com.lumaserv.proxmox.ve.request.storage.StorageUpdateRequest;
 import com.lumaserv.proxmox.ve.response.access.AccessTicketCreateResponse;
+import lombok.Getter;
 import org.javawebstack.abstractdata.AbstractElement;
 import org.javawebstack.abstractdata.AbstractObject;
 import org.javawebstack.abstractdata.mapper.Mapper;
@@ -33,8 +34,10 @@ public class ProxMoxVEClient {
             .adapter(new ResourceMapper());
 
     final HTTPClient client;
-    final ClusterAPI clusterAPI = new ClusterAPI(this);;
+    final ClusterAPI clusterAPI = new ClusterAPI(this);
     final AccessAPI accessAPI = new AccessAPI(this);
+    @Getter
+    String srvName;
 
     public ProxMoxVEClient(String host) throws ProxMoxVEException {
         this(host, null, null, null);
@@ -96,6 +99,9 @@ public class ProxMoxVEClient {
             throw new ProxMoxVEException(http);
         try {
             http.data();
+            HttpCookie srvNameCookie = http.cookie("SRVNAME");
+            if (srvNameCookie != null)
+                srvName = srvNameCookie.getValue();
         } catch (Exception ex) {
 
         }
