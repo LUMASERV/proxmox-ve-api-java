@@ -33,11 +33,10 @@ public class ProxMoxVEClient {
             .namingPolicy(NamingPolicy.SNAKE_CASE)
             .adapter(new ResourceMapper());
 
+    @Getter
     final HTTPClient client;
     final ClusterAPI clusterAPI = new ClusterAPI(this);
     final AccessAPI accessAPI = new AccessAPI(this);
-    @Getter
-    String srvName;
 
     public ProxMoxVEClient(String host) throws ProxMoxVEException {
         this(host, null, null, null);
@@ -50,6 +49,7 @@ public class ProxMoxVEClient {
     public ProxMoxVEClient(String host, String realm, String username, String password) throws ProxMoxVEException {
         client = new HTTPClient().setBaseUrl("https://" + host + ":8006/api2/json");
         client.setSSLVerification(false);
+        client.autoCookies();
         if(username != null && password != null) {
             setAuth(accessAPI.createTicket(new AccessTicketCreateRequest()
                     .setUsername(username)
@@ -100,8 +100,6 @@ public class ProxMoxVEClient {
         try {
             http.data();
             HttpCookie srvNameCookie = http.cookie("SRVNAME");
-            if (srvNameCookie != null)
-                srvName = srvNameCookie.getValue();
         } catch (Exception ex) {
 
         }
