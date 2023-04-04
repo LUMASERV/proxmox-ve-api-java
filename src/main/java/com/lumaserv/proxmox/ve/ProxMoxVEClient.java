@@ -63,6 +63,7 @@ public class ProxMoxVEClient {
         client = new HTTPClient().setBaseUrl("https://" + host + ":8006/api2/json");
         client.setSSLVerification(false);
         client.header("Authorization", "PVEAPIToken=" + token);
+        client.autoCookies();
     }
 
     public ProxMoxVEClient setAuth(AccessTicketCreateResponse response) {
