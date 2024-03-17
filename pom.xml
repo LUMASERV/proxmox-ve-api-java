@@ -6,7 +6,7 @@
 
     <groupId>com.lumaserv</groupId>
     <artifactId>proxmox-ve-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,17 +24,17 @@
         <dependency>
             <groupId>org.javawebstack</groupId>
             <artifactId>http-client</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.javawebstack</groupId>
             <artifactId>abstract-data</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.7-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.28</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
