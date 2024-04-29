@@ -20,6 +20,14 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/fan9704/proxmox-ve-api-java</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.javawebstack</groupId>
@@ -57,15 +65,15 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>lumaserv-snapshots</id>
-            <url>https://nexus.lumaserv.cloud/repository/lumaserv-snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>lumaserv-releases</id>
-            <url>https://nexus.lumaserv.cloud/repository/lumaserv-releases</url>
-        </repository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <snapshotRepository>-->
+<!--            <id>lumaserv-snapshots</id>-->
+<!--            <url>https://nexus.lumaserv.cloud/repository/lumaserv-snapshots</url>-->
+<!--        </snapshotRepository>-->
+<!--        <repository>-->
+<!--            <id>lumaserv-releases</id>-->
+<!--            <url>https://nexus.lumaserv.cloud/repository/lumaserv-releases</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 
 </project>
