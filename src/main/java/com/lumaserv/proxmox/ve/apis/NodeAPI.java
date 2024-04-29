@@ -7,6 +7,7 @@ import com.lumaserv.proxmox.ve.model.TaskLogLine;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallOptions;
 import com.lumaserv.proxmox.ve.model.firewall.FirewallRule;
 import com.lumaserv.proxmox.ve.model.nodes.NodeRRDFrame;
+import com.lumaserv.proxmox.ve.model.nodes.lxc.LXC;
 import com.lumaserv.proxmox.ve.model.nodes.qemu.QemuVM;
 import com.lumaserv.proxmox.ve.model.storage.Storage;
 import com.lumaserv.proxmox.ve.model.storage.StorageVolume;
@@ -55,6 +56,9 @@ public class NodeAPI {
 
     public String createQemuVM(QemuVMCreateRequest request) throws ProxMoxVEException {
         return request("POST", "/qemu", request, String.class);
+    }
+    public List<LXC> getLXCs() throws ProxMoxVEException {
+        return Arrays.asList(request("GET", "/lxc", null, LXC[].class));
     }
 
     public List<FirewallRule> getFirewallRules() throws ProxMoxVEException {
