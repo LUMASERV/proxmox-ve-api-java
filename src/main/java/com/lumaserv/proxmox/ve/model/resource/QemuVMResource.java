@@ -25,5 +25,10 @@ public class QemuVMResource extends Resource {
     Integer vmid;
     Integer diskwrite;
     Integer diskread;
+    String tags;
+
+    public boolean isTemplate() {
+        return template != null && template != 0;
+    }
 
 }
