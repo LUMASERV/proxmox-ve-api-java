@@ -59,12 +59,12 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>lumaserv-snapshots</id>
-            <url>https://nexus.lumaserv.cloud/repository/lumaserv-snapshots</url>
+            <id>lumaserv-api-snapshots</id>
+            <url>https://repo.lumaserv.dev/repository/lumaserv-api-snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>lumaserv-releases</id>
-            <url>https://nexus.lumaserv.cloud/repository/lumaserv-releases</url>
+            <id>lumaserv-api</id>
+            <url>https://repo.lumaserv.dev/repository/lumaserv-api</url>
         </repository>
     </distributionManagement>
 
